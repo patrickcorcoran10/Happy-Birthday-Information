@@ -10,18 +10,25 @@
     <link rel="stylesheet" type="text/css" media="screen" href="assets/main.css" />
 </head>
 <body>
-        <div class="jumbotron jumbotron-fluid">
-                <div class="container">
-                  <h1 class="display-4">They say its your Birthday!?</h1>
-                  <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-                </div>
-              </div>
+    <div id="musicGroup">
+      <audio id="musicToggle" autoplay="autoplay" controls="controls">
+         <source src="assets/sounds/katyPerryBirthday.mp3"/>
+     </audio>
+    </div>
+
+    <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+              <h1 class="display-4">They say its your Birthday!?</h1>
+              <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+            </div>
+          </div>
 
     <form>
         Birthday:
         <input id="bday" type="date">
         <button id="submit">Submit</button>
-      </form>  
+      </form>
       <script src="assets/logic.js"></script>
+
 </body>
 </html>
