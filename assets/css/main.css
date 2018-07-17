@@ -1,6 +1,8 @@
 #jumbotron {
     margin: auto;
-    background-image: url("../images/cake.jpg");
+    background-image: url("../images/jumbotronBackground1.jpg");
+    animation: jumbotronSectionTransition 60s; /* time it takes for the complete animation to complete */
+    animation-iteration-count: 25; /* will continue for roughly 15 minutes or so */
     background-size: cover;
     background-repeat: no-repeat;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -11,9 +13,24 @@
 }
 
 h1 {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: 'monosten-a', 'source-code-pro', 'Courier New', Courier, mono;
     color: white;
     text-shadow: 2px 2px black;
+}
+
+label {
+  font-family: 'monosten-a', 'source-code-pro', 'Courier New', Courier, mono;
+    color: white;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px red;
+}
+
+button {
+    font-family: 'monosten-a', 'source-code-pro', 'Courier New', Courier, mono;
+}
+
+#submit {
+    margin-top: 2%;
 }
 
 #form {
@@ -24,6 +41,13 @@ h1 {
     width: 90%;
     height: 25%;
     margin: auto;
+}
+
+#article-section {
+  animation: articleSectionTransition 60s; /* time it takes for the complete animation to complete */
+  animation-iteration-count: 25; /* will continue for roughly 15 minutes or so */
+  padding-right: 3%;
+  padding-top: 1.5%;
 }
 
 .card-header {
@@ -65,4 +89,104 @@ h1 {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+/* Start background animation section*/
+@keyframes jumbotronSectionTransition-----
+{
+  /* Starts with base image --- step 1 */
+  0%
+  {
+  background: url("../images/jumbotronBackground1.jpg") no-repeat center center fixed;
+  max-width: 100%;
+  max-height: 100%;
+  }
+  /* Begins transition to next image at 25% */
+  25%
+  {
+  background: url("../images/jumbotronBackground2.jpg") no-repeat center center fixed;
+  max-width: 100%;
+  max-height: 100%;
+  }
+  /* Begins transition to next image at 50% */
+  50%
+  {
+  background: url("../images/jumbotronBackground3.jpg") no-repeat center center fixed;
+  width: 100%;
+  height: 100%;
+  }
+  /* Begins transition to next image at 75% */
+  75%
+  {
+  background: url("../images/jumbotronBackground4.jpg") no-repeat center center fixed;
+  width: 100%;
+  height: 100%;
+  }
+  /* Begins transition to next image at 100% */
+  100%
+  {
+  background: url("../images/jumbotronBackground5.jpg") no-repeat center center fixed;
+  width: 100%;
+  height: 100%;
+  }
+}
+
+/* Start background animation section*/
+@keyframes articleSectionTransition
+{
+  /* Starts with base color --- step 1 */
+  0%
+  {
+    background: #F8E9A1;
+  }
+  /* Begins transition to next color at 10% */
+  10%
+  {
+    background: #F76C6C;
+  }
+  /* Begins transition to next color at 20% */
+  20%
+  {
+    background: #A8D0E6;
+  }
+  /* Begins transition to next color at 30% */
+  30%
+  {
+    background: #374785;
+  }
+  /* Begins transition to next color at 40% */
+  40%
+  {
+    background: #24305E;
+  }
+  /* Begins transition to next color at 50% */
+  50%
+  {
+    background: #A64AC9;
+  }
+  /* Begins transition to next color at 60% */
+  60%
+  {
+    background: #FCCD04;
+  }
+  /* Begins transition to next color at 70% */
+  70%
+  {
+    background: #FFB48F;
+  }
+  /* Begins transition to next color at 80% */
+  80%
+  {
+    background: #F5E6CC;
+  }
+  /* Begins transition to next color at 90% */
+  90%
+  {
+    background: #17E9E0;
+  }
+  /* Begins transition to next color at 100% and completes sequence --- step 4 */
+  100%
+  {
+    background: #3AAFA9;
+  }
 }

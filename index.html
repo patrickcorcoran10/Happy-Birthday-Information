@@ -10,17 +10,33 @@
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css" />
 </head>
 <body>
-        <div id="jumbotron" class="jumbotron jumbotron-fluid">
-                <div class="container">
-                  <h1 class="display-4"><strong>They say its your Birthday!?</strong></h1>
-                  <p class="lead">Enter your birthdate below to learn more about your special day in history...</p>
-                </div>
-                <form id="form">
-                    Birthday:
-                    <input id="bday" type="date">
-                    <button id="submit">Submit</button>
-                  </form><br>
-              </div><br>
+  <div id="jumbotron" class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4"><strong>Fantastic Factoids!</strong></h1>
+      <p class="lead">Tell us a little bit about yourself, and watch the magic happen!</p>
+    </div>
+
+    <form id="form">
+      <!-- This form will be where users input data about the music -->
+
+        <label for="artist-input">Enter your favorite Musical Artist: </label>
+        <input type="text" id="artist-input"><br>
+
+        <label for="album-input">Enter your favorite Music Album: </label>
+        <input type="text" id="album-input"><br>
+
+        <label for="birth-location-input">Enter your City of Birth: </label>
+        <input type="text" id="birth-location-input"><br>
+
+        <label for="date-input">Enter your Birthdate: </label>
+        <input type="date" id="date-input"><br>
+
+        <!-- Submit Button -->
+        <button id="submit">Submit</button>
+      </form><br>
+  </div><br>
+
+
 <!-- Trigger/Open The Modal -->
 <button id="myBtn">Open Modal</button>
 
@@ -35,21 +51,32 @@
 
 </div>
 
-      <script src="assets/javascript/logic.js"></script>
+<script src="assets/javascript/logic.js"></script>
 
-      <div id="nyTimes">
-        <div class="card">
-          <div class="card-header">
-            <img src="assets/images/nyTimes.png">
-          </div>
-          <div id="article-section">
-          </div>
-          <div id="hollywood">
-              <div class="card">
-                <div class="card-header">
-                  <img src="assets/images/movie.jpeg">
-                </div>
-                <div id="movies-section">
-                </div>
+<div id="nyTimes">
+  <div class="card">
+    <div class="card-header">
+      <img src="assets/images/nyTimes.png">
+    </div>
+  </div>
+</div>
+
+<!-- Contains the NY Times data dump -->
+<div id="article-section"></div>
+
+<div id="hollywood">
+  <div class="card">
+    <div class="card-header">
+      <img src="assets/images/movie.jpeg">
+    </div>
+  </div>
+</div>
+
+<!-- Contains the OMDB API movie data dump -->
+<div id="movies-section"></div>
+
+<!-- Contains the weather API data dump -->
+<div id="weather-section"></div>
+
 </body>
 </html>
