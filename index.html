@@ -7,28 +7,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css" />
 </head>
 <body>
-    <div id="musicGroup">
-      <audio id="musicToggle" autoplay="autoplay" controls="controls">
-         <source src="assets/sounds/katyPerryBirthday.mp3"/>
-     </audio>
-    </div>
+        <div id="jumbotron" class="jumbotron jumbotron-fluid">
+                <div class="container">
+                  <h1 class="display-4"><strong>They say its your Birthday!?</strong></h1>
+                  <p class="lead">Enter your birthdate below to learn more about your special day in history...</p>
+                </div>
+                <form id="form">
+                    Birthday:
+                    <input id="bday" type="date">
+                    <button id="submit">Submit</button>
+                  </form><br>
+              </div><br>
+<!-- Trigger/Open The Modal -->
+<button id="myBtn">Open Modal</button>
 
-    <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-              <h1 class="display-4">They say its your Birthday!?</h1>
-              <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-            </div>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Some text in the Modal..</p>
+  </div>
+
+</div>
+
+      <script src="assets/javascript/logic.js"></script>
+
+      <div id="nyTimes">
+        <div class="card">
+          <div class="card-header">
+            <img src="assets/images/nyTimes.png">
           </div>
-
-    <form>
-        Birthday:
-        <input id="bday" type="date">
-        <button id="submit">Submit</button>
-      </form>
-      <script src="assets/logic.js"></script>
-
+          <div id="article-section">
+          </div>
+          <div id="hollywood">
+              <div class="card">
+                <div class="card-header">
+                  <img src="assets/images/movie.jpeg">
+                </div>
+                <div id="movies-section">
+                </div>
 </body>
 </html>
