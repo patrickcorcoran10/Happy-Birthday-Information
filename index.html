@@ -7,49 +7,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css" />
 </head>
 <body>
-        <div id="jumbotron" class="jumbotron jumbotron-fluid">
-                <div class="container">
-                  <h1 class="display-4"><strong>They say its your Birthday!?</strong></h1>
-                  <p class="lead">Enter your birthdate below to learn more about your special day in history...</p>
-                </div>
-                <form id="form">
-                    Birthday:
-                    <input id="bday" type="date">
-                    <button id="submit">Submit</button>
-                  </form><br>
-              </div><br>
-<!-- Trigger/Open The Modal -->
-<button id="myBtn">Open Modal</button>
+  <div id="jumbotron" class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4"><strong>Fantastic Factoids!</strong></h1>
+      <p class="lead">Tell us a little bit about yourself, and watch the magic happen!</p>
+    </div>
 
-<!-- The Modal -->
-<div id="myModal" class="modal">
+    <form id="form">
+      <!-- This form will be where users input data about the music -->
 
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>Some text in the Modal..</p>
+        <label for="artist-input">Enter your favorite Musical Artist: </label>
+        <input class="aligned-inputs" type="text" id="artist-input"><br>
+
+        <label for="album-input">Enter your favorite Music Album: </label>
+        <input class="aligned-inputs" type="text" id="album-input"><br>
+
+        <label for="birth-location-input">Enter your City of Birth: </label>
+        <input class="aligned-inputs" type="text" id="birth-location-input"><br>
+
+        <label for="date-input">Enter your Birthdate: </label>
+        <input class="aligned-inputs" type="date" id="date-input"><br>
+
+        <!-- Submit Button -->
+        <button id="submit">Submit</button>
+      </form><br>
+  </div><br>
+
+<script src="assets/javascript/logic.js"></script>
+
+  <!-- Contains the container/card structure and container image -->
+  <div id="nyTimes-container">
+    <div class="card">
+      <div class="card-header">
+        <img src="assets/images/nyTimes.png">
+      </div>
+    </div>
   </div>
 
-</div>
+  <!-- Contains the NY Times data dump -->
+  <div id="article-section"></div>
 
-      <script src="assets/javascript/logic.js"></script>
+  <!-- Contains the container/card structure and container image -->
+  <div id="movieOMDB-container">
+    <div class="card">
+      <div class="card-header">
+        <img src="assets/images/movie.jpeg">
+      </div>
+    </div>
+  </div>
 
-      <div id="nyTimes">
-        <div class="card">
-          <div class="card-header">
-            <img src="assets/images/nyTimes.png">
-          </div>
-          <div id="article-section">
-          </div>
-          <div id="hollywood">
-              <div class="card">
-                <div class="card-header">
-                  <img src="assets/images/movie.jpeg">
-                </div>
-                <div id="movies-section">
-                </div>
+  <!-- Contains the OMDB API movie data dump -->
+  <div id="movieOMDB-section"></div>
+
+  <div id="weather-container">
+    <div class="card">
+      <div class="card-header">
+        <img src="assets/images/weather.png">
+      </div>
+    </div>
+  </div>
+
+  <!-- Contains the weather API data dump -->
+  <div id="weather-section"></div>
+
+  <div id="financial-container">
+    <div class="card">
+      <div class="card-header">
+        <img src="assets/images/money.jpg">
+      </div>
+    </div>
+  </div>
+
+  <!-- Contains the weather API data dump -->
+  <div id="financial-section"></div>
+
+  <!-- Current Table Data Dump-->
+  <div class="card card-primary">
+    <div class="card-header">
+      <h3 class="card-title"><strong>General User Interests</strong></h3>
+    </div>
+    <div class="card-body">
+      <table class="table table-hover" id='data-dump-table'>
+        <thead>
+          <tr>
+            <th>Favorite Musical Artist</th>
+            <th>Favorite Musical Album</th>
+            <th>City of Birth</th>
+            <th>Birthdate</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    <!-- Closing "card-body" -->
+    </div>
+  <!-- Closing "card card-primary" -->
+  </div>
 </body>
 </html>
