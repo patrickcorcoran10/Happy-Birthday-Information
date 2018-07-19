@@ -12,6 +12,23 @@
     color: white;
 }
 
+/* This is regarding the position of the music controller */
+#musicGroup
+{
+  float:right;
+  position: fixed;
+  top: 15px;
+  right: 0;
+}
+
+#musicToggle
+{
+  float: right;
+  position: fixed;
+  top: 20px;
+  right: 0;
+}
+
 p {
   font-family: 'monosten-a', 'source-code-pro', 'Courier New', Courier, mono;
   color: white;

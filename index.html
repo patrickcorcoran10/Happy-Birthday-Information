@@ -11,6 +11,15 @@
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css" />
 </head>
 <body>
+
+  <!-- This is a div that conains the audio controller -->
+  <!-- By default, this should autoplay in Firefox, but not in Chrome. Feel free to see the behavior in each browser -->
+  <div id="musicGroup">
+    <audio id="musicToggle" autoplay="autoplay" controls="controls">
+       <source src="assets/sounds/partyHardShort.mp3"/>
+   </audio>
+ </div>
+
   <div id="jumbotron" class="jumbotron jumbotron-fluid">
     <div class="container">
       <h1 class="display-4"><strong>Fantastic Factoids!</strong></h1>
@@ -39,6 +48,8 @@
 
 <script src="assets/javascript/logic.js"></script>
 
+<!-- ________________________________________________ -->
+
   <!-- Contains the container/card structure and container image -->
   <div id="nyTimes-container">
     <div class="card">
@@ -51,6 +62,8 @@
   <!-- Contains the NY Times data dump -->
   <div id="article-section"></div>
 
+  <!-- ________________________________________________ -->
+
   <!-- Contains the container/card structure and container image -->
   <div id="movieOMDB-container">
     <div class="card">
@@ -60,20 +73,31 @@
     </div>
   </div>
 
+  <div id="poster"></div>
+  <div id="poster2"></div>
+  <div id="poster3"></div>
+
   <!-- Contains the OMDB API movie data dump -->
   <div id="movieOMDB-section"></div>
 
+<!-- ________________________________________________ -->
+
+  <!-- Contains the container/card structure and container image -->
   <div id="youtube-container">
     <div class="card">
       <div class="card-header">
-        <img src="assets/images/weather.png">
+        <img src="assets/images/videos.jpg">
       </div>
     </div>
   </div>
 
-  <!-- Contains the weather API data dump -->
-  <div id="youtube-section"></div>
-  <iframe width="560" height="315" id="video" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  <!-- Contains the youtube API data dump -->
+  <div id="youtube-section">
+    <iframe width="560" height="315" id="video" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+
+  <!-- ________________________________________________ -->
+
 
   <div id="financial-container">
     <div class="card">
@@ -85,6 +109,8 @@
 
   <!-- Contains the weather API data dump -->
   <div id="financial-section"></div>
+
+  <!-- ________________________________________________ -->
 
   <!-- Current Table Data Dump-->
   <div class="card card-primary">
