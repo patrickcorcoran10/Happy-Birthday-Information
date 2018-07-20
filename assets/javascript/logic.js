@@ -145,11 +145,17 @@ $("#submit").on("click", function(event){
 ////////////////////////////////////
         for (var i = 0; i < 3; i++) {
           var posterURL = response.results[i].poster_path;
+          var titleURL = response.results[i].original_title;
           var posterURLCount = i + 1;
                 $("#movieOMDB-section").append(response.results[i].original_title);
-                // $("#movieOMDB-section").append(response.results[1].original_title);
-                // $("#movieOMDB-section").append(response.results[2].original_title);
-                // var posterURL = response.results[0].poster_path;
+                var firstMovie = response.results[0].original_title;
+                var secondMovie = response.results[1].original_title;
+                var thirdMovie = response.results[2].original_title;
+                var movieList =$("<ul>");
+                $("#movieOMDB-section").append(movieList);
+                var movieListItem = $("<li class='list-group-item movie-list'>");
+                
+
                 var posterImage = $("<img>");
                 var posterImage2 = $("<img>");
                 var posterImage3 = $("<img>");
@@ -159,6 +165,10 @@ $("#submit").on("click", function(event){
                 $("#poster2").append(posterImage2[1]);
                 $("#poster3").append(posterImage3[2]);
               }
+                movieListItem.append("<p> The top grossing movie for " +year+ " was " +firstMovie+"</p>");
+                movieListItem.append("<p> The second top grossing movie for " +year+ " was " +secondMovie+"</p>");
+                movieListItem.append("<p> The third top grossing movie for " +year+ " was " +thirdMovie+"</p>");
+                movieList.append(movieListItem);
             });
 
             // var date2 = $("date-input").val().trim();
