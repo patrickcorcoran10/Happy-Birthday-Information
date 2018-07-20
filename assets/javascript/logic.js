@@ -1,3 +1,9 @@
+$(document).ready(function() {
+  $("#myBtn").hide();
+  $("#confetti").hide();
+  $("#message").hide();
+});
+
 // -----------------------------------------------------------------------------------
 // START FIREBASE
 // -----------------------------------------------------------------------------------
@@ -20,9 +26,56 @@ $("#submit").on("click", function(event){
     event.preventDefault();
 
     // Collecting input from user
+
+    var currentMonth = (new Date).getMonth() + 1;
+    var currentDay = (new Date).getDate();
     var artistName = $("#artist-input").val().trim();
     var birthLocation = $("#birth-location-input").val().trim();
     var birthDate = $("#date-input").val().trim();
+    var dateInput = $("#date-input").val().split('-'),
+    dateMonth = parseInt(dateInput[1]),
+    dateDay = parseInt(dateInput[2]);
+
+    if ((dateMonth == currentMonth) && (dateDay == currentDay)) {
+      $("#jumbotron").hide();
+      $("#nyTimes-container").hide();
+      $("#article-section").hide();
+      $("#movieOMDB-container").hide();
+      $("#movieOMDB-section").hide();
+      $("#video").show();
+      $("#youtube-section").show();
+      $("#financial-container").hide();
+      $("#financial-section").hide();
+      $("#poster").hide();
+      $("#table").hide();
+      $("#poster2").hide();
+      $("#poster3").hide();
+      $("#data-dump-table").hide();
+      $("#movie-header").hide();
+      $("#confetti").show();
+      $("#message").show();
+      $("#myBtn").show();
+      celebrate();
+    } else {
+      $("#jumbotron").show();
+      $("#nyTimes-container").show();
+      $("#article-section").show();
+      $("#movieOMDB-container").show();
+      $("#movieOMDB-section").show();
+      $("#video").hide();
+      $("#youtube-section").hide();
+      $("#financial-container").show();
+      $("#financial-section").show();
+      $("#poster").show();
+      $("#table").show();
+      $("#poster2").show();
+      $("#poster3").show();
+      $("#data-dump-table").show();
+      $("#movie-header").show();
+      $("#confetti").hide();
+      $("#message").hide();
+      $("#myBtn").hide();
+    };
 
     // Creating a new local "temporary" object for that holds input data
     var newItem = {
@@ -70,6 +123,7 @@ $("#submit").on("click", function(event){
             $articleList.append($articleListItem);
         }});
 
+
             var date = $("#date-input").val().trim();
 
             var year = date.slice(0, 4)
@@ -85,21 +139,16 @@ $("#submit").on("click", function(event){
                 method: "GET"
             }).then(function(response) {
                 console.log(response);
-
 ///////////////
 ////////youtube and grossing movie api's
 ////////////////////////////////////
-
         for (var i = 0; i < 3; i++) {
           var posterURL = response.results[i].poster_path;
           var posterURLCount = i + 1;
-                // $("#movieOMDB-section").append(response.results[i].original_title);
-
-
+                $("#movieOMDB-section").append(response.results[i].original_title);
                 // $("#movieOMDB-section").append(response.results[1].original_title);
                 // $("#movieOMDB-section").append(response.results[2].original_title);
                 // var posterURL = response.results[0].poster_path;
-
                 var posterImage = $("<img>");
                 var posterImage2 = $("<img>");
                 var posterImage3 = $("<img>");
@@ -109,13 +158,7 @@ $("#submit").on("click", function(event){
                 $("#poster2").append(posterImage2[1]);
                 $("#poster3").append(posterImage3[2]);
               }
-
-              $("#movieOMDB-section").append("<p> The highest grossing movie on your birthday (" + date + ") was " + response.results[0].original_title + "</p>");
-              $("#movieOMDB-section").append("<p> The second highest grossing movie on your birthday (" + date + ") was " + response.results[1].original_title + "</p>");
-              $("#movieOMDB-section").append("<p> The third highest grossing movie on your birthday (" + date + ") was " + response.results[2].original_title + "</p>");
-
             });
-
 
             // var date2 = $("date-input").val().trim();
             var name = $("#artist-input").val().trim();
@@ -157,7 +200,7 @@ $("#submit").on("click", function(event){
 
             var usCurrency = currency.USD;
             var britianCurrency = currency.GBP;
-            var australianCurrency = currency.AUD;
+            var australianCurrency = currency.GBP;
 
             console.log("US Currency: " + usCurrency);
             console.log("Britian Currency: " + britianCurrency);

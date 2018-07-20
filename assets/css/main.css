@@ -492,3 +492,13 @@ background-image: url("../images/jumbotronBackground1.jpg");
 background-image: url("../images/jumbotronBackground2.jpg");
   }
 }
+
+#confetti
+{
+    height: 100%;
+    left: 0px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: -1;
+}
