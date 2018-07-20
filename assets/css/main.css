@@ -1,9 +1,9 @@
 p
 {
   font-family: 'Barlow Semi Condensed', sans-serif;
-  color: #ffffff;
-  text-shadow: 2px 2px grey;
-  padding-bottom: 20px;
+  color: #000000;
+  /* text-shadow: 2px 2px grey; */
+  padding-bottom: 15px;
 }
 
 h1
@@ -95,13 +95,15 @@ body {
   animation-iteration-count: 25; /* will continue for roughly 15 minutes or so */
   padding-right: 3%;
   padding-top: 1.5%;
+  padding-bottom: 1.5%;
 }
 
 #movieOMDB-section {
-  animation: movieOMDBSectionTransition 60s; /* time it takes for the complete animation to complete */
+  animation: movieOMDBSectionTransition 30s; /* time it takes for the complete animation to complete */
   animation-iteration-count: 25; /* will continue for roughly 15 minutes or so */
   padding-right: 3%;
-  padding-top: 1.5%;
+  padding-top: 1.7%;
+  padding-bottom: 1.5%;
 }
 
 #youtube-section {
@@ -111,20 +113,19 @@ body {
   width: 50%;
   padding-right: 3%;
   padding-top: 1.5%;
-  padding-bottom: 1.5%;
 }
 
 #financial-section {
   animation: financialSectionTransition 60s; /* time it takes for the complete animation to complete */
   animation-iteration-count: 25; /* will continue for roughly 15 minutes or so */
   padding-right: 3%;
-  padding-top: 1.5%;
+  padding-top: 1.7%;
+  padding-bottom: 1.5%;
 }
 
-#posterGroup
-{
-
+.financialRate li p {
 }
+
 
 #data-dump-section
 {
@@ -328,16 +329,19 @@ body {
   0%
   {
 background-image: url("../images/jumbotronBackground4.jpg");
+opacity: 1;
   }
   /* Begins transition to next color at 10% */
   10%
   {
 background-image: url("../images/jumbotronBackground5.jpg");
+opacity: 0.5;
   }
   /* Begins transition to next color at 20% */
   20%
   {
 background-image: url("../images/jumbotronBackground4.jpg");
+opacity: 1;
   }
   /* Begins transition to next color at 30% */
   30%
@@ -348,12 +352,14 @@ background-image: url("../images/jumbotronBackground5.jpg");
   40%
   {
 background-image: url("../images/jumbotronBackground4.jpg");
+opacity: 1;
 
   }
   /* Begins transition to next color at 50% */
   50%
   {
 background-image: url("../images/jumbotronBackground5.jpg");
+opacity: 0.5;
   }
   /* Begins transition to next color at 60% */
   60%
@@ -364,6 +370,7 @@ background-image: url("../images/jumbotronBackground4.jpg");
   70%
   {
 background-image: url("../images/jumbotronBackground5.jpg");
+opacity: 0.5;
   }
   /* Begins transition to next color at 80% */
   80%
@@ -374,6 +381,7 @@ background-image: url("../images/jumbotronBackground4.jpg");
   90%
   {
 background-image: url("../images/jumbotronBackground5.jpg");
+opacity: 0.5;
   }
   /* Begins transition to next color at 100% and completes sequence --- step 4 */
   100%
@@ -501,6 +509,23 @@ background-image: url("../images/jumbotronBackground3.jpg");
   {
 background-image: url("../images/jumbotronBackground2.jpg");
   }
+}
+
+#message {
+  width: 18rem;
+  height: 450px;
+}
+
+#message img {
+  width: 480px;
+  height: 240px;
+}
+
+#myBtn
+{
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
 }
 
 #confetti

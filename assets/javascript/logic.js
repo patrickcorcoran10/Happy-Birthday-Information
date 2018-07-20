@@ -149,6 +149,7 @@ $("#submit").on("click", function(event){
           var posterImage = $("<img>");
           var posterImage2 = $("<img>");
           var posterImage3 = $("<img>");
+
           posterImage.attr("src","https://image.tmdb.org/t/p/w500" +  posterURL );
           posterImage.attr("alt", "poster image");
           $("#poster").append(posterImage[0]);
@@ -215,7 +216,7 @@ $("#submit").on("click", function(event){
 
             var usCurrency = currency.USD;
             var britianCurrency = currency.GBP;
-            var australianCurrency = currency.GBP;
+            var australianCurrency = currency.AUD;
 
             console.log("US Currency: " + usCurrency);
             console.log("Britian Currency: " + britianCurrency);
@@ -233,7 +234,7 @@ $("#submit").on("click", function(event){
             var $financialList = $("<ul>");
             $("#financial-section").append($financialList);
             var $financialListItem = $("<li class='list-group-item financialRate'>");
-            $financialListItem.append("<p> YOU SUCK" + "</p>");
+            $financialListItem.append("<p> You are too old to see any financial rates. Sorry..." + "</p>");
             $financialList.append($financialListItem);
 
             // Clearing out all of the text-boxes by setting the values to an empty string
