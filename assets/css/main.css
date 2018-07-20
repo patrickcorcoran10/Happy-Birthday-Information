@@ -12,6 +12,23 @@
     color: white;
 }
 
+/* This is regarding the position of the music controller */
+#musicGroup
+{
+  float:right;
+  position: fixed;
+  top: 15px;
+  right: 0;
+}
+
+#musicToggle
+{
+  float: right;
+  position: fixed;
+  top: 20px;
+  right: 0;
+}
+
 p {
   font-family: 'monosten-a', 'source-code-pro', 'Courier New', Courier, mono;
   color: white;
@@ -90,6 +107,10 @@ body {
   animation-iteration-count: 25; /* will continue for roughly 15 minutes or so */
   padding-right: 3%;
   padding-top: 1.5%;
+}
+
+#posterGroup {
+
 }
 
 #data-dump-section {
