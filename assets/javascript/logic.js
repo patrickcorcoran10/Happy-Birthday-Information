@@ -21,14 +21,12 @@ $("#submit").on("click", function(event){
 
     // Collecting input from user
     var artistName = $("#artist-input").val().trim();
-    var albumName = $("#album-input").val().trim();
     var birthLocation = $("#birth-location-input").val().trim();
     var birthDate = $("#date-input").val().trim();
 
     // Creating a new local "temporary" object for that holds input data
     var newItem = {
       artist: artistName,
-      album: albumName,
       place: birthLocation,
       dateOfBirth: birthDate,
     };
@@ -39,7 +37,6 @@ $("#submit").on("click", function(event){
     // Logging everything to the console
     // This could be uncommented, but it is good to keep so that it is easy to verify the behavior in both Firebase and the console.
     console.log(newItem.artist);
-    console.log(newItem.album);
     console.log(newItem.place);
     console.log(newItem.dateOfBirth);
 
@@ -73,8 +70,6 @@ $("#submit").on("click", function(event){
             $articleList.append($articleListItem);
         }});
 
-
-
             var date = $("#date-input").val().trim();
 
             var year = date.slice(0, 4)
@@ -90,16 +85,21 @@ $("#submit").on("click", function(event){
                 method: "GET"
             }).then(function(response) {
                 console.log(response);
+
 ///////////////
 ////////youtube and grossing movie api's
 ////////////////////////////////////
+
         for (var i = 0; i < 3; i++) {
           var posterURL = response.results[i].poster_path;
           var posterURLCount = i + 1;
-                $("#movieOMDB-section").append(response.results[i].original_title);
+                // $("#movieOMDB-section").append(response.results[i].original_title);
+
+
                 // $("#movieOMDB-section").append(response.results[1].original_title);
                 // $("#movieOMDB-section").append(response.results[2].original_title);
                 // var posterURL = response.results[0].poster_path;
+
                 var posterImage = $("<img>");
                 var posterImage2 = $("<img>");
                 var posterImage3 = $("<img>");
@@ -109,7 +109,13 @@ $("#submit").on("click", function(event){
                 $("#poster2").append(posterImage2[1]);
                 $("#poster3").append(posterImage3[2]);
               }
+
+              $("#movieOMDB-section").append("<p> The highest grossing movie on your birthday (" + date + ") was " + response.results[0].original_title + "</p>");
+              $("#movieOMDB-section").append("<p> The second highest grossing movie on your birthday (" + date + ") was " + response.results[1].original_title + "</p>");
+              $("#movieOMDB-section").append("<p> The third highest grossing movie on your birthday (" + date + ") was " + response.results[2].original_title + "</p>");
+
             });
+
 
             // var date2 = $("date-input").val().trim();
             var name = $("#artist-input").val().trim();
@@ -132,7 +138,6 @@ $("#submit").on("click", function(event){
 
           // Here we grab the text from the input box
           var artist = $("#artist-input").val();
-          var album = $("#album-input").val();
           var birthLocation = $("#birth-location-input").val();
           var date = $("#date-input").val();
 
@@ -152,7 +157,7 @@ $("#submit").on("click", function(event){
 
             var usCurrency = currency.USD;
             var britianCurrency = currency.GBP;
-            var australianCurrency = currency.GBP;
+            var australianCurrency = currency.AUD;
 
             console.log("US Currency: " + usCurrency);
             console.log("Britian Currency: " + britianCurrency);
@@ -175,7 +180,6 @@ $("#submit").on("click", function(event){
 
             // Clearing out all of the text-boxes by setting the values to an empty string
             $("#artist-input").val("");
-            $("#album-input").val("");
             $("#birth-location-input").val("");
             $("#date-input").val("");
 
@@ -190,20 +194,17 @@ $("#submit").on("click", function(event){
 
     // Storing the above childSnapshot for each input in a new variable
     var artistName = childSnapshot.val().artist;
-    var albumName = childSnapshot.val().album;
     var birthLocation = childSnapshot.val().place;
     var birthDate = childSnapshot.val().dateOfBirth;
 
     // Console logging the train info that was generated from the above snapshot values
     console.log(artistName);
-    console.log(albumName);
     console.log(birthLocation);
     console.log(birthDate);
 
     // Adding the entered train data into the table
     $("#data-dump-table > tbody").append("<tr><td>" +
     artistName + "</td><td>" +
-    albumName + "</td><td>" +
     birthLocation + "</td><td>" +
     birthDate + "</td><td>");
 

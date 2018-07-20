@@ -109,6 +109,10 @@ body {
   padding-top: 1.5%;
 }
 
+#posterGroup {
+
+}
+
 #data-dump-section {
   animation: articleSectionTransition 60s; /* time it takes for the complete animation to complete */
   animation-iteration-count: 25; /* will continue for roughly 15 minutes or so */
