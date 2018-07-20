@@ -63,6 +63,7 @@ $("#submit").on("click", function(event){
       $("#movieOMDB-container").show();
       $("#movieOMDB-section").show();
       $("#video").hide();
+      $("#youtube-container").hide();
       $("#youtube-section").hide();
       $("#financial-container").show();
       $("#financial-section").show();

@@ -362,13 +362,19 @@ btn.onclick = function() {
     $("#nyTimes-container").show();
     $("#article-section").show();
     $("#movieOMDB-container").show();
+    $("#posterGroup").show();
+    $("#poster").show();
+    $("#poster2").show();
+    $("#poster3").show();
     $("#movieOMDB-section").show();
     $("#youtube-container").hide();
     $("#youtube-section").hide();
     $("#financial-container").show();
     $("#financial-section").show();
+    $("#table").show();
+    $("#data-dump-table").show();
     $("#user-table").show();
     $("#confetti").hide();
     $("#message").hide();
     $("#myBtn").hide();
-})}};
+});};}
