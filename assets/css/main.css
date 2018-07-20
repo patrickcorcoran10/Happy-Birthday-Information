@@ -1,7 +1,46 @@
+p
+{
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  color: #ffffff;
+  text-shadow: 2px 2px grey;
+  padding-bottom: 20px;
+}
+
+h1
+{
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  color: #ffffff;
+  text-shadow: 2px 2px grey;
+}
+
+h3
+{
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  text-align: center;
+}
+
+label
+{
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  color: #ffffff;
+  letter-spacing: 1.5px;
+  text-shadow: 2px 2px grey;
+}
+
+button
+{
+  font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+body {
+  background: pink;
+}
+
+
 #jumbotron
 {
     margin: auto;
-    background-image: url("../images/chicagoBackground7.jpeg");
+    background-image: url("../images/chicagoSkyline8.jpg");
     animation: jumbotronSectionTransition 60s; /* time it takes for the complete animation to complete */
     animation-iteration-count: 25; /* will continue for roughly 15 minutes or so */
     background-size: cover;
@@ -9,9 +48,15 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+/* Moving the jumbotron header and paragraph tags to bette align with the input form */
+#jumbotron h1, #jumbotron p
+{
+    margin-left: 45%;
+}
+
 .lead
 {
-    color: white;
+    color: #ffffff;
 }
 
 /* This is regarding the position of the music controller */
@@ -31,55 +76,12 @@
   right: 0;
 }
 
-p
-{
-  font-family: 'monosten-a', 'source-code-pro', 'Courier New', Courier, mono;
-  color: white;
-  text-shadow: 2px 2px grey;
-  padding-bottom: 20px;
-}
-
-h1
-{
-  font-family: 'monosten-a', 'source-code-pro', 'Courier New', Courier, mono;
-  color: white;
-  text-shadow: 2px 2px grey;
-}
-
-h3
-{
-  font-family: 'monosten-a', 'source-code-pro', 'Courier New', Courier, mono;
-  text-align: center;
-}
-
-label
-{
-  font-family: 'monosten-a', 'source-code-pro', 'Courier New', Courier, mono;
-    color: white;
-    letter-spacing: 1.5px;
-    text-shadow: 2px 2px grey;
-}
-
-button
-{
-    font-family: 'monosten-a', 'source-code-pro', 'Courier New', Courier, mono;
-}
-
-body {
-  background: pink;
-}
-
-.aligned-inputs
-{
-
-}
-
 #submit {
     margin-top: 2%;
 }
 
 #form {
-    margin-left: 15%;
+    margin-left: 48%;
 }
 
 #nyTimes {
@@ -105,8 +107,11 @@ body {
 #youtube-section {
   animation: youtubeSectionTransition 60s; /* time it takes for the complete animation to complete */
   animation-iteration-count: 25; /* will continue for roughly 15 minutes or so */
+  margin: auto;
+  width: 50%;
   padding-right: 3%;
   padding-top: 1.5%;
+  padding-bottom: 1.5%;
 }
 
 #financial-section {
@@ -131,7 +136,7 @@ body {
 
 .card-header
 {
-    background-color: white;
+    background-color: #ffffff;
 }
 
 /* The Close Button */
@@ -149,6 +154,30 @@ body {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+/* Start background animation section*/
+@keyframes jumbotronSectionTransition
+{
+  25%
+  {
+    background-image: url("../images/chicagoBackground7.jpeg");
+  }
+
+  50%
+  {
+    background-image: url("../images/chicagoSkyline8.jpg");
+  }
+
+  75%
+  {
+    background-image: url("../images/chicagoBackground7.jpeg");
+  }
+
+  100%
+  {
+    background-image: url("../images/chicagoSkyline8.jpg");
+  }
 }
 
 /* Start background animation section*/
@@ -349,7 +378,7 @@ background-image: url("../images/jumbotronBackground5.jpg");
   /* Begins transition to next color at 100% and completes sequence --- step 4 */
   100%
   {
-background-image: url("../images/jumbotronBackground2.jpg");
+background-image: url("../images/jumbotronBackground4.jpg");
   }
 }
 
