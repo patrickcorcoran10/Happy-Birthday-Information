@@ -1,10 +1,16 @@
+// Coding for the function below celebrate() within the confetti.js file was published originally to the open-source online forum codepen by author known as Ghost Rider.
+// Source for the coding can be found at:  https://codepen.io/GhostRider/pen/Lzfrd
+// Declares function entitled "celebrate" called when if statement shows today's date equals that of birthdate month/date entered.
+// Triggers confetti animation in the DIV element with ID="confetti"
 
 function celebrate() {
-    $(document).ready(function() {
+    $(document).ready(function(){
+        // Declares a few variables called upon later in the code to determine size and speed of confetti particle shapes
         var frameRate = 30;
         var dt = 1.0 / frameRate;
         var DEG_TO_RAD = Math.PI / 180;
         var RAD_TO_DEG = 180 / Math.PI;
+        // The below code (lines 14-19) declares colors for confetti particles shown in the animation called later in the code
         var colors = [
             ["#df0049", "#660671"],
             ["#00e857", "#005291"],
@@ -112,7 +118,7 @@ function celebrate() {
                 return totalForce;
             }
         }
-
+        // Coding for the shape and speed of the confetti paper particles as seen in the animation
         function ConfettiPaper(_x, _y) {
             this.pos = new Vector2(_x, _y);
             this.rotationSpeed = Math.random() * 600 + 800;
@@ -160,7 +166,7 @@ function celebrate() {
             }
         }
         ConfettiPaper.bounds = new Vector2(0, 0);
-
+        // Coding for the shape and movement of the confetti ribbons as seen in the animation
         function ConfettiRibbon(_x, _y, _count, _dist, _thickness, _angle, _mass, _drag) {
             this.particleDist = _dist;
             this.particleCount = _count;
@@ -213,6 +219,7 @@ function celebrate() {
                     this.Reset();
                 }
             }
+            // Determines movement of the Confetti ribbons
             this.Reset = function() {
                 this.position.y = -Math.random() * ConfettiRibbon.bounds.y;
                 this.position.x = Math.random() * ConfettiRibbon.bounds.x;
@@ -349,15 +356,14 @@ function celebrate() {
         });
     });
 
-
 var btn = document.getElementById("myBtn");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks on the button, open the modal
-btn.onclick = function() {
-  $(document).ready(function() {
+btn.onclick = function(){
+  $(document).ready(function(){
     $("#jumbotron").show();
     $("#nyTimes-container").show();
     $("#article-section").show();
@@ -377,4 +383,6 @@ btn.onclick = function() {
     $("#confetti").hide();
     $("#message").hide();
     $("#myBtn").hide();
-});};}
+  });
+ };
+}

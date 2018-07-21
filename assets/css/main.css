@@ -33,30 +33,12 @@ button
 }
 
 body {
-  background: pink;
-}
-
-
-#jumbotron
-{
-    margin: auto;
-    background-image: url("../images/chicagoSkyline8.jpg");
-    animation: jumbotronSectionTransition 60s; /* time it takes for the complete animation to complete */
-    animation-iteration-count: 25; /* will continue for roughly 15 minutes or so */
-    background-size: cover;
-    background-repeat: no-repeat;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-/* Moving the jumbotron header and paragraph tags to bette align with the input form */
-#jumbotron h1, #jumbotron p
-{
-    margin-left: 45%;
+  background: #ff007f;
 }
 
 .lead
 {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 /* This is regarding the position of the music controller */
@@ -68,6 +50,7 @@ body {
   right: 0;
 }
 
+/* This is regarding the position of the music controller */
 #musicToggle
 {
   float: right;
@@ -76,18 +59,73 @@ body {
   right: 0;
 }
 
-#submit {
-    margin-top: 2%;
+#submit
+{
+  margin-top: 2%;
 }
 
-#form {
-    margin-left: 48%;
+/* Similar to the jumbotron header and paragraph tags, we are adding some margin spacing to line these items closer to the center */
+#form
+{
+  margin-left: 48%;
 }
 
-#nyTimes {
-    width: 90%;
-    height: 25%;
-    margin: auto;
+/* Changing the height and width of the main container for the birthday image, message, and button on the confetti page */
+#message
+{
+  width: 18rem;
+  height: 450px;
+}
+
+/* Changing the size of the birthday image on the confetti page */
+#message img
+{
+  width: 480px;
+  height: 240px;
+  margin-left: 210%;
+}
+
+/* Giving the button some padding and a colored border on the confetti page */
+#myBtn
+{
+  width: 50%;
+  border: 3px solid #228B22;
+  padding: 10px;
+  margin-left: 300%;
+}
+
+/* Centering the video on the confetting page */
+#youtube-section iframe
+{
+  margin-left: 18%;
+}
+
+/* Styling the canvas page that replaces our main page if the user's birth day and month match the current day and month */
+#confetti
+{
+    height: 100%;
+    left: 0px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: -1;
+}
+
+/* Moving the jumbotron header and paragraph tags to better align with the input form */
+#jumbotron h1, #jumbotron p
+{
+  margin-left: 45%;
+}
+
+#jumbotron
+{
+  margin: auto;
+  background-image: url("../images/chicagoSkyline8.jpg");
+  animation: jumbotronSectionTransition 60s; /* time it takes for the complete animation to complete */
+  animation-iteration-count: 25; /* will continue for roughly 15 minutes or so */
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #article-section {
@@ -99,7 +137,7 @@ body {
 }
 
 #movieOMDB-section {
-  animation: movieOMDBSectionTransition 30s; /* time it takes for the complete animation to complete */
+  animation: movieOMDBSectionTransition 60s; /* time it takes for the complete animation to complete */
   animation-iteration-count: 25; /* will continue for roughly 15 minutes or so */
   padding-right: 3%;
   padding-top: 1.7%;
@@ -116,16 +154,12 @@ body {
 }
 
 #financial-section {
-  animation: financialSectionTransition 60s; /* time it takes for the complete animation to complete */
+  animation: financialSectionTransition 40s; /* time it takes for the complete animation to complete */
   animation-iteration-count: 25; /* will continue for roughly 15 minutes or so */
   padding-right: 3%;
   padding-top: 1.7%;
   padding-bottom: 1.5%;
 }
-
-.financialRate li p {
-}
-
 
 #data-dump-section
 {
@@ -157,7 +191,9 @@ body {
     cursor: pointer;
 }
 
-/* Start background animation section*/
+/* Start background animation section for the jumbotron */
+/* This keyframe transition changes the background image for the jumbotron every 25% */
+/* Between these points, we added some changes to the opacity that will allow the background color of the body to bleed into the jumbotron */
 @keyframes jumbotronSectionTransition
 {
   25%
@@ -165,14 +201,29 @@ body {
     background-image: url("../images/chicagoBackground7.jpeg");
   }
 
+  40%
+  {
+    opacity:0.5;
+  }
+
   50%
   {
     background-image: url("../images/chicagoSkyline8.jpg");
   }
 
+  65%
+  {
+    opacity:1;
+  }
+
   75%
   {
     background-image: url("../images/chicagoBackground7.jpeg");
+  }
+
+  90%
+  {
+    opacity:0.5;
   }
 
   100%
@@ -181,7 +232,8 @@ body {
   }
 }
 
-/* Start background animation section*/
+/* Start background animation section for the article section */
+/* This keyframe transition changes the background image for the article section every 5% */
 @keyframes articleSectionTransition
 {
   /* Starts with base color */
@@ -314,7 +366,7 @@ body {
     opacity:1;
   }
 
-  /* Begins transition to next color at 100% and completes sequence --- step 4 */
+  /* Begins transition to next color at 100% and completes sequence */
   100%
   {
     background: #3AAFA9;
@@ -322,75 +374,50 @@ body {
   }
 }
 
-/* Start background animation section*/
+/* Start background animation section for the OMDB movie section */
+/* This keyframe transition changes the background image for the OMDB movie section every 20% */
 @keyframes movieOMDBSectionTransition
 {
-  /* Starts with base color --- step 1 */
+  /* Starts with base color */
   0%
   {
-background-image: url("../images/jumbotronBackground4.jpg");
-opacity: 1;
-  }
-  /* Begins transition to next color at 10% */
-  10%
-  {
-background-image: url("../images/jumbotronBackground5.jpg");
-opacity: 0.5;
+    background-image: url("../images/movieBackground3.jpg");
+    opacity:0.5;
   }
   /* Begins transition to next color at 20% */
   20%
   {
-background-image: url("../images/jumbotronBackground4.jpg");
-opacity: 1;
-  }
-  /* Begins transition to next color at 30% */
-  30%
-  {
-background-image: url("../images/jumbotronBackground5.jpg");
+    background-image: url("../images/movieBackground2.jpg");
+    opacity:1;
   }
   /* Begins transition to next color at 40% */
   40%
   {
-background-image: url("../images/jumbotronBackground4.jpg");
-opacity: 1;
-
-  }
-  /* Begins transition to next color at 50% */
-  50%
-  {
-background-image: url("../images/jumbotronBackground5.jpg");
-opacity: 0.5;
+    background-image: url("../images/movieBackground3.jpg");
+    opacity:0.5;
   }
   /* Begins transition to next color at 60% */
   60%
   {
-background-image: url("../images/jumbotronBackground4.jpg");
-  }
-  /* Begins transition to next color at 70% */
-  70%
-  {
-background-image: url("../images/jumbotronBackground5.jpg");
-opacity: 0.5;
+    background-image: url("../images/movieBackground2.jpg");
+    opacity:1;
   }
   /* Begins transition to next color at 80% */
   80%
   {
-background-image: url("../images/jumbotronBackground4.jpg");
-  }
-  /* Begins transition to next color at 90% */
-  90%
-  {
-background-image: url("../images/jumbotronBackground5.jpg");
-opacity: 0.5;
+    background-image: url("../images/movieBackground3.jpg");
+    opacity:0.5;
   }
   /* Begins transition to next color at 100% and completes sequence --- step 4 */
   100%
   {
-background-image: url("../images/jumbotronBackground4.jpg");
+    background-image: url("../images/movieBackground2.jpg");
+    opacity:1;
   }
 }
 
-/* Start background animation section*/
+/* Start background animation section for the YouTube section */
+/* This keyframe transition changes the background image for the YouTube section every 10% */
 @keyframes youtubeSectionTransition
 {
   /* Starts with base color --- step 1 */
@@ -450,90 +477,75 @@ background-image: url("../images/jumbotronBackground4.jpg");
   }
 }
 
-/* Start background animation section*/
+/* Start background animation section for the OpenRates financial section */
+/* This keyframe transition changes the background image for the OpenRates financial section every 10% */
 @keyframes financialSectionTransition
 {
-  /* Starts with base color --- step 1 */
+  /* Starts with base image */
   0%
   {
-background-image: url("../images/jumbotronBackground3.jpg");
+    background-image: url("../images/movieBackground4.jpg");
+    opacity: 1;
   }
-  /* Begins transition to next color at 10% */
+  /* Begins transition to next image at 10% */
   10%
   {
-background-image: url("../images/jumbotronBackground2.jpg");
+    background-image: url("../images/movieBackground5.jpg");
+    opacity: 0.5;
   }
-  /* Begins transition to next color at 20% */
+  /* Begins transition to next image at 20% */
   20%
   {
-background-image: url("../images/jumbotronBackground3.jpg");
+    background-image: url("../images/movieBackground4.jpg");
+    opacity: 1;
   }
-  /* Begins transition to next color at 30% */
+  /* Begins transition to next image at 30% */
   30%
   {
-background-image: url("../images/jumbotronBackground3.jpg");
+    background-image: url("../images/movieBackground5.jpg");
+    opacity: 0.5;
   }
-  /* Begins transition to next color at 40% */
+  /* Begins transition to next image at 40% */
   40%
   {
-background-image: url("../images/jumbotronBackground2.jpg");
+    background-image: url("../images/movieBackground4.jpg");
+    opacity: 1;
 
   }
-  /* Begins transition to next color at 50% */
+  /* Begins transition to next image at 50% */
   50%
   {
-background-image: url("../images/jumbotronBackground3.jpg");
+    background-image: url("../images/movieBackground5.jpg");
+    opacity: 0.5;
   }
-  /* Begins transition to next color at 60% */
+  /* Begins transition to next image at 60% */
   60%
   {
-background-image: url("../images/jumbotronBackground3.jpg");
+    background-image: url("../images/movieBackground4.jpg");
+    opacity: 1;
   }
-  /* Begins transition to next color at 70% */
+  /* Begins transition to next image at 70% */
   70%
   {
-background-image: url("../images/jumbotronBackground2.jpg");
+    background-image: url("../images/movieBackground5.jpg");
+    opacity: 0.5;
   }
-  /* Begins transition to next color at 80% */
+  /* Begins transition to next image at 80% */
   80%
   {
-background-image: url("../images/jumbotronBackground3.jpg");
+    background-image: url("../images/movieBackground4.jpg");
+    opacity: 1;
   }
-  /* Begins transition to next color at 90% */
+  /* Begins transition to next image at 90% */
   90%
   {
-background-image: url("../images/jumbotronBackground3.jpg");
+    background-image: url("../images/movieBackground5.jpg");
+    opacity: 0.5;
   }
-  /* Begins transition to next color at 100% and completes sequence --- step 4 */
+  /* Begins transition to next image at 100% and completes sequence */
   100%
   {
-background-image: url("../images/jumbotronBackground2.jpg");
+    background-image: url("../images/movieBackground4.jpg");
+    opacity: 1;
   }
-}
-
-#message {
-  width: 18rem;
-  height: 450px;
-}
-
-#message img {
-  width: 480px;
-  height: 240px;
-}
-
-#myBtn
-{
-  width: 50%;
-  border: 3px solid green;
-  padding: 10px;
-}
-
-#confetti
-{
-    height: 100%;
-    left: 0px;
-    position: fixed;
-    top: 0px;
-    width: 100%;
-    z-index: -1;
 }
