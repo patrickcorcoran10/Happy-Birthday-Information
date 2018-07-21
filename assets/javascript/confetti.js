@@ -374,7 +374,12 @@ btn.onclick = function(){
     $("#poster3").show();
     $("#movieOMDB-section").show();
     $("#youtube-container").hide();
-    $("#youtube-section").hide();
+    $("#youtube-section").hide()
+        // This is writing the inital video state back to the html when the button is clicked.
+        // This will allow the video to stop playing when the button is clicked.
+        .html('<iframe width="560" height="315" id="video" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+    // This is pausing the video and hiding the controll when we navigate back to the main html page.
+    $('#musicToggle').trigger('pause').hide();
     $("#financial-container").show();
     $("#financial-section").show();
     $("#table").show();
