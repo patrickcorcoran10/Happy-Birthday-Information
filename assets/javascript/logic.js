@@ -21,7 +21,7 @@ var config = {
 firebase.initializeApp(config);
 
 var database = firebase.database();
-
+// on click function to accept data inputs
 $("#submit").on("click", function(event){
     event.preventDefault();
 
@@ -35,7 +35,7 @@ $("#submit").on("click", function(event){
     var dateInput = $("#date-input").val().split('-'),
     dateMonth = parseInt(dateInput[1]),
     dateDay = parseInt(dateInput[2]);
-
+// jquery hiding code. this is meant to hide and show elemnts of the html based off birth month//
     if ((dateMonth == currentMonth) && (dateDay == currentDay)) {
       $("#jumbotron").hide();
       $("#nyTimes-container").hide();
@@ -93,7 +93,7 @@ $("#submit").on("click", function(event){
     console.log(newItem.userName);
     console.log(newItem.place);
     console.log(newItem.dateOfBirth);
-
+    // NYT API code. pulling the top articles based on birth date. 
     $("#article-section").empty();
     var birthday = $("#date-input").val();
     var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
@@ -110,8 +110,10 @@ $("#submit").on("click", function(event){
         for (var i = 0; i < 5; i++) {
             var article = result.response.docs[i];
             var articleCount = i + 1;
+            // toaking the list items and using jQuery to put them into listed items. 
             var $articleList = $("<ul>");
             var byline = article.byline;
+            // appending the list into the html into the "article-section" id
             $("#article-section").append($articleList);
             var headline = article.headline.main;
             var $articleListItem = $("<li class='list-group-item articleHeadline'>");
@@ -124,15 +126,15 @@ $("#submit").on("click", function(event){
             $articleList.append($articleListItem);
         }});
 
-
+            // themoviedb API is being used here to get the year and then looking into the API so that we can find the top grossing movie and the poster of that movie. 
             var date = $("#date-input").val().trim();
-
+            // using the slice function to take the date from YYYYMMDD into YYYY, MM, and DD. 
             var year = date.slice(0, 4)
             var month = date.slice(5, 7);
             console.log(month);
             var day = date.slice(8, 10);
             console.log(day);
-            //if (day =)
+            // throwing just the year variable into the queryURL
             var queryURL = "https://api.themoviedb.org/3/discover/movie?certification_country=US&primary_release_year="+year+"&sort_by=revenue.desc&api_key=51eb03086e20d27aa96dcce0ddf7d6a0";
 
             $.ajax({
@@ -140,16 +142,13 @@ $("#submit").on("click", function(event){
                 method: "GET"
             }).then(function(response) {
                 console.log(response);
-///////////////
-////////youtube and grossing movie api's
-////////////////////////////////////
         for (var i = 0; i < 3; i++) {
           var posterURL = response.results[i].poster_path;
           var posterURLCount = i + 1;
           var posterImage = $("<img>");
           var posterImage2 = $("<img>");
           var posterImage3 = $("<img>");
-
+          // Taking the poster from the queryURL and putting them onto the page
           posterImage.attr("src","https://image.tmdb.org/t/p/w500" +  posterURL );
           posterImage.attr("alt", "poster image");
           $("#poster").append(posterImage[0]);
@@ -158,7 +157,7 @@ $("#submit").on("click", function(event){
         }
 
 
-
+        // taking the movie names and giving them context on the html page. 
         var $movieList = $("<ul>");
         $("#movieOMDB-section").append($movieList);
         var $movieListItem = $("<li class='list-group-item movieResponse'>");
@@ -167,18 +166,12 @@ $("#submit").on("click", function(event){
         $movieListItem.append("<p> The second highest grossing movie on your birthday (" + date + ") was " + response.results[1].original_title + "</p>");
         $movieListItem.append("<p> The third highest grossing movie on your birthday (" + date + ") was " + response.results[2].original_title + "</p>");
         $movieList.append($movieListItem);
-
-
-              // $("#movieOMDB-section").append("<p> The highest grossing movie on your birthday (" + date + ") was " + response.results[0].original_title + "</p>");
-              // $("#movieOMDB-section").append("<p> The second highest grossing movie on your birthday (" + date + ") was " + response.results[1].original_title + "</p>");
-              // $("#movieOMDB-section").append("<p> The third highest grossing movie on your birthday (" + date + ") was " + response.results[2].original_title + "</p>");
-
             });
 
-
-            // var date2 = $("date-input").val().trim();
+            // youtube API. we are taking the name of the user and using the youtubeAPI to get a happy birthday video from them if 'today' is their birthday.
             var name = $("#userName-input").val().trim();
-            console.log(name);
+            console.log (name);
+            // using the name input to access the youtube API and get the specified channels video based on the input
             var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCMAtGuHXZbuWCIu5qzoTMqg&q=" + name + "&key=AIzaSyDt345apnnfJAcLDzf1_Iw5gSb7cbT_zWw";
             $.ajax({
                 url: queryURL,
@@ -193,16 +186,14 @@ $("#submit").on("click", function(event){
 
             });
 
-          $("#financial-section").empty();
 
+          $("#financial-section").empty();
+          // here we take OpenRates API and use it to give the user the currency valuations from their birth date.
           // Here we grab the text from the input box
           var userName = $("#userName-input").val();
           var birthLocation = $("#birth-location-input").val();
           var date = $("#date-input").val();
 
-          // Here we construct our URL - Utilize OpenRates API
-          // var queryURL = "http://api.openrates.io/2000-01-03"
-          // Be mindful of the dates entered. If the date is a holiday or a weekend, it will pull the data from the preceding business day
           var queryURL = "http://api.openrates.io/" + date;
 
           $.ajax({
@@ -210,8 +201,9 @@ $("#submit").on("click", function(event){
             method: "GET",
         }).done(function(response) {
             console.log(response);
-
+            // taking the openrates API and getting the correct currency's form usa, great britain, and australia. 
             var currency = response.rates;
+            // making a variable to create a list on the html.
             var $financialList = $("<ul>");
 
             var usCurrency = currency.USD;
@@ -221,7 +213,7 @@ $("#submit").on("click", function(event){
             console.log("US Currency: " + usCurrency);
             console.log("Britian Currency: " + britianCurrency);
             console.log("Australian Currency: " + australianCurrency);
-
+            // printing to the page
             $("#financial-section").append($financialList);
             var $financialListItem = $("<li class='list-group-item financialRate'>");
 
