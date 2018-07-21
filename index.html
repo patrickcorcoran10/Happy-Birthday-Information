@@ -5,9 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CCS Styling Link -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <!-- Custom Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed" rel="stylesheet">
+    <!-- JQuery Script Link - Normal -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- JQuery Script Link - Used for Confetti Page -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.js"></script>
+    <!-- Firebase Database Link -->
     <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+    <!-- Custom CSS Styling Link -->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css" />
 </head>
 <body>
@@ -20,21 +28,19 @@
    </audio>
  </div>
 
+  <!-- Jumbotron window section that contains the input form and Chicago Skyline Backgrounds -->
   <div id="jumbotron" class="jumbotron jumbotron-fluid">
     <div class="container">
       <h1 class="display-4"><strong>Fantastic Factoids!</strong></h1>
       <p class="lead">Tell us a little bit about yourself, and watch the magic happen!</p>
     </div>
 
+    <!-- This form contains three input fields - first name, city, and birthdate -->
     <form id="form">
-      <!-- This form will be where users input data about the music -->
-
-        <label for="artist-input">Enter your favorite Musical Artist: </label>
-        <input class="aligned-inputs" type="text" id="artist-input"><br>
-
+        <label for="userName-input">Enter your first name: </label>
+        <input class="aligned-inputs" type="text" id="userName-input"><br>
         <label for="birth-location-input">Enter your City of Birth: </label>
         <input class="aligned-inputs" type="text" id="birth-location-input"><br>
-
         <label for="date-input">Enter your Birthdate: </label>
         <input class="aligned-inputs" type="date" id="date-input"><br>
 
@@ -43,11 +49,21 @@
       </form><br>
   </div><br>
 
+  <div id="confetti"></div>
+  <div id="message">
+      <img class="card-img-top" src="assets/images/cake.jpg" alt="Card image cap">
+      <div class="card-body">
+        <!-- <p class="card-text">Happiest of Birthdays to You!</p> -->
+        <button id="myBtn">Return to See Results</button>
+      </div>
+  </div>
+
+<script src="assets/javascript/confetti.js"></script>
 <script src="assets/javascript/logic.js"></script>
 
 <!-- ________________________________________________ -->
 
-  <!-- Contains the container/card structure and container image -->
+  <!-- Contains the container/card structure and container image for the NYT API -->
   <div id="nyTimes-container">
     <div class="card">
       <div class="card-header">
@@ -61,7 +77,7 @@
 
   <!-- ________________________________________________ -->
 
-  <!-- Contains the container/card structure and container image -->
+  <!-- Contains the container/card structure and container image for the OMDB API -->
   <div id="movieOMDB-container">
     <div class="card">
       <div class="card-header">
@@ -70,18 +86,16 @@
     </div>
   </div>
 
-  <!-- <div id="posterGroup"> -->
     <div id="poster"></div>
     <div id="poster2"></div>
     <div id="poster3"></div>
-  <!-- </div> -->
 
   <!-- Contains the OMDB API movie data dump -->
   <div id="movieOMDB-section"></div>
 
 <!-- ________________________________________________ -->
 
-  <!-- Contains the container/card structure and container image -->
+  <!-- Contains the container/card structure and container image for the Youtube API -->
   <div id="youtube-container">
     <div class="card">
       <div class="card-header">
@@ -90,14 +104,14 @@
     </div>
   </div>
 
-  <!-- Contains the youtube API data dump -->
+  <!-- Contains the YouTube API data dump -->
   <div id="youtube-section">
     <iframe width="560" height="315" id="video" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
   </div>
 
   <!-- ________________________________________________ -->
 
-
+  <!-- Contains the container/card structure and container image for the OpenRates API -->
   <div id="financial-container">
     <div class="card">
       <div class="card-header">
@@ -106,22 +120,21 @@
     </div>
   </div>
 
-  <!-- Contains the weather API data dump -->
+  <!-- Contains the OpenRates API data dump -->
   <div id="financial-section"></div>
 
   <!-- ________________________________________________ -->
 
-  <!-- Current Table Data Dump-->
-  <div class="card card-primary">
-    <div class="card-header">
-      <h3 class="card-title"><strong>General User Interests</strong></h3>
+  <!-- Current Table Data Dump for Firebase-->
+  <div id="table" class="card card-primary">
+    <div id="card-header" class="card-header">
+      <h3 class="card-title"><strong>Stored User Information</strong></h3>
     </div>
     <div class="card-body">
       <table class="table table-hover" id='data-dump-table'>
         <thead>
           <tr>
-            <th>Favorite Musical Artist</th>
-            <th>Favorite Musical Album</th>
+            <th>Name of User</th>
             <th>City of Birth</th>
             <th>Birthdate</th>
           </tr>
